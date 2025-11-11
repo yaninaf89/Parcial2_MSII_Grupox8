@@ -1,4 +1,4 @@
-from funciones.multiplicarFrias import multiplicar
+from funciones.multiplicar_frias import multiplicar
 
 def test_multiplicar():
     assert multiplicar(3, 4) == 12
