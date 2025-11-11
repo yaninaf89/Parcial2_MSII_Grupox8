@@ -23,4 +23,5 @@ jobs:
 
       - name: Ejecutar pruebas
         run: |
+          cd $GITHUB_WORKSPACE
           pytest -v
