@@ -1,4 +1,4 @@
-﻿from funciones.sumar_ituarte import sumar_ituarte
+from funciones.sumar_ituarte import sumar_ituarte
 
 def test_sumar_ituarte():
     assert sumar_ituarte(3, 5) == 8
