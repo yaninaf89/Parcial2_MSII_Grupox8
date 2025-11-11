@@ -1,4 +1,4 @@
-﻿# Archivo principal del grupo
+# Archivo principal del grupo
 # Cada integrante deberá agregar su función en un archivo independiente
 from funciones import *
 
