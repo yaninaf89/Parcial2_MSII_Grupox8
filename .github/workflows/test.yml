@@ -1,24 +1,32 @@
-name: Pruebas automáticas del grupo
-on:
-  push:
-    branches:
-      - main
-      - "*"
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clonar el repositorio
-        uses: actions/checkout@v3
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - name: Instalar dependencias
-        run: |
-          pip install pytest
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
-      - name: Ejecutar pruebas
-        run: |
-          pytest -v
+nombre:  Pruebas  automáticas  del  grupo en:
+   push:
+     ramas:
+       -  principal
+       -  "*" trabajos:
+   test:
+     se ejecuta en:  ubuntu-latest
+     entorno:
+       PYTHONPATH:  ${{  github.workspace  }}
+
+     pasos:
+       -  nombre:  Clonar  el  repositorio
+         usa:  actions/checkout@v3
+
+       -  nombre:  Configurar  Python
+         usa:  actions/setup-python@v4
+         con:
+           python-version:  "3.10"
+
+       -  nombre:  Instalar  dependencias
+         ejecutar:  |
+           python  -m  pip  install  --upgrade  pip
+           pip  install  pytest
+
+       -  nombre:  Mostrar  estructura  (depuración)
+         ejecutar:  |
+           pwd
+           ls  -R
+
+       -  nombre:  Ejecutar  pruebas
+         ejecutar:  |
+           python  -m  pytest  -v 
