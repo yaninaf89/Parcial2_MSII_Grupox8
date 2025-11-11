@@ -1,27 +1,32 @@
-name: Pruebas automáticas del grupo
+nombre:  Pruebas  automáticas  del  grupo en:
+   push:
+     ramas:
+       -  principal
+       -  "*" trabajos:
+   test:
+     se ejecuta en:  ubuntu-latest
+     entorno:
+       PYTHONPATH:  ${{  github.workspace  }}
 
-on:
-  push:
-    branches:
-      - main
-      - '*'
+     pasos:
+       -  nombre:  Clonar  el  repositorio
+         usa:  actions/checkout@v3
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clonar el repositorio
-        uses: actions/checkout@v3
+       -  nombre:  Configurar  Python
+         usa:  actions/setup-python@v4
+         con:
+           python-version:  "3.10"
 
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+       -  nombre:  Instalar  dependencias
+         ejecutar:  |
+           python  -m  pip  install  --upgrade  pip
+           pip  install  pytest
 
-      - name: Instalar dependencias
-        run: pip install pytest
+       -  nombre:  Mostrar  estructura  (depuración)
+         ejecutar:  |
+           pwd
+           ls  -R
 
-      - name: Ejecutar pruebas
-        run: |
-          cd $GITHUB_WORKSPACE
-          pytest -v
+       -  nombre:  Ejecutar  pruebas
+         ejecutar:  |
+           python  -m  pytest  -v 
